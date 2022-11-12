@@ -11,9 +11,12 @@ jobs:
       options: --user 1001
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'npm'
     - run: npm ci
-    - run: npm run build
     - run: npm run lint
+    - run: npm run build
     - run: npm run test:unit
     - run: npm run test:component
     - run: npm run test:e2e

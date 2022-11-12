@@ -2,7 +2,7 @@
 	"name": "weltenbummlerpaar-vue",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"args": { "VARIANT": "16-bullseye" }
+		"args": { "VARIANT": "18-bullseye" }
 	},
 	"customizations": {
 		"vscode": {
@@ -13,7 +13,5 @@
 			]
 		}
 	},
-	// "forwardPorts": [],
-	// "postCreateCommand": "yarn install",
 	"remoteUser": "node"
 }

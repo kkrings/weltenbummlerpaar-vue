@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.base.json",
+  "exclude": ["cypress/support/e2e.ts", "vitest/**/*"],
+  "compilerOptions": {
+    "types": ["cypress", "@testing-library/cypress"]
+  }
+}

@@ -4,12 +4,11 @@ on:
     branches:
     - main
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     container: cypress/browsers:node18.12.0-chrome106-ff106
     steps:
-    - name: Build, Lint, and Test
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - run: npm ci
     - run: npm run build
     - run: npm run lint

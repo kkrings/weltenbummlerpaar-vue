@@ -2,7 +2,6 @@
   "name": "weltenbummlerpaar",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "husky install",
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
@@ -14,7 +13,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --check **/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}"
+    "format": "prettier --check **/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}",
+    "husky:install": "husky install"
   },
   "dependencies": {
     "@vicons/material": "^0.12.0",

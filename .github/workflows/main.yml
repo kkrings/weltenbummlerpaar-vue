@@ -6,7 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: cypress/base:18.12.0
+    container:
+      image: cypress/base:18.12.0
+      options: --user 1001
     steps:
     - uses: actions/checkout@v3
     - run: npm ci

@@ -4,16 +4,19 @@ on:
     branches:
     - main
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.12.0-chrome106-ff106
+    container:
+      image: cypress/base:18.12.0
+      options: --user 1001
     steps:
     - uses: actions/checkout@v3
-    - name: Build, Lint, and Test
-      uses: cypress-io/github-action@v4
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'npm'
     - run: npm ci
-    - run: npm run build
     - run: npm run lint
+    - run: npm run build
     - run: npm run test:unit
     - run: npm run test:component
     - run: npm run test:e2e

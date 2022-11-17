@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { cwd } from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
@@ -6,15 +8,20 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig(({ mode }) => {
-  validateEnv(loadEnv(mode, cwd(), 'WELTENBUMMLERPAAR_FRONTEND_'));
-
+  const root = cwd();
+  const envPrefix = 'WELTENBUMMLERPAAR_FRONTEND_';
+  validateEnv(loadEnv(mode, root, envPrefix));
   return {
-    envPrefix: ['VITE_', 'WELTENBUMMLERPAAR_FRONTEND_'],
+    root,
+    envPrefix,
     plugins: [vue(), vueJsx()],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
+    },
+    test: {
+      include: ['**/*.spec.{js,ts,jsx,tsx}'],
     },
   };
 });

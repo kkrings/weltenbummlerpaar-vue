@@ -8,11 +8,11 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig(({ mode }) => {
-  const root = cwd();
+  const envDir = cwd();
   const envPrefix = 'WELTENBUMMLERPAAR_FRONTEND_';
-  validateEnv(loadEnv(mode, root, envPrefix));
+  validateEnv(loadEnv(mode, envDir, envPrefix));
   return {
-    root,
+    envDir,
     envPrefix,
     plugins: [vue(), vueJsx()],
     resolve: {

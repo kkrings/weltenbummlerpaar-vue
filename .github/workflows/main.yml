@@ -9,6 +9,9 @@ jobs:
     container:
       image: cypress/base:18.12.0
       options: --user 1001
+    env:
+      WELTENBUMMLERPAAR_FRONTEND_API_BASE_URL: http://localhost:3000
+      WELTENBUMMLERPAAR_FRONTEND_IMG_BASE_URL: http://localhost:3000/image-uploads
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3

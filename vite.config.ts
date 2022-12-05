@@ -6,6 +6,7 @@ import { defineConfig, loadEnv } from 'vite';
 import { validateEnv } from './config/validateEnv';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import istanbul from 'vite-plugin-istanbul';
 
 export default defineConfig(({ mode }) => {
   const envDir = cwd();
@@ -14,11 +15,21 @@ export default defineConfig(({ mode }) => {
   return {
     envDir,
     envPrefix,
-    plugins: [vue(), vueJsx()],
+    plugins: [
+      vue(),
+      vueJsx(),
+      istanbul({
+        requireEnv: true,
+        cypress: true,
+      }),
+    ],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
+    },
+    build: {
+      sourcemap: false,
     },
     test: {
       include: ['**/*.spec.{js,ts,jsx,tsx}'],

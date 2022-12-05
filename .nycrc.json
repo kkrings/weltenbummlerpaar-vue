@@ -1,0 +1,4 @@
+{
+    "extension": [".js", ".cjs", ".mjs", ".ts", ".tsx", ".jsx", ".vue"],
+    "include": ["src/**/*"]
+}
